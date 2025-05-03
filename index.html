@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seu Perfil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+    }
+    .container {
+      max-width: 828px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container img {
+      width: 100%;
+      height: auto;
+    }
+    .username {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      margin: 20px 0;
+      animation: fadeInDown 0.6s ease;
+    }
+    .social-icons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+      animation: fadeInUp 0.6s ease;
+    }
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #00e3fd;
+      transform: scale(1.1);
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      text-decoration: none;
+      padding: 20px;
+      margin: 10px 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5em;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 255, 21, 0.767);
+    }
+    .btn.whatsapp {
+      background-image: linear-gradient(45deg, #00e3fd 0%, #6ef195 100%);
+      color: #000;
+    }
+    .btn.link {
+      background-color: #303030;
+      color: #fff;
+      backdrop-filter: blur(20px);
+      border-top: 1px solid;
+      border-image: linear-gradient(90deg, #00e3fd, #6ef195) 1;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+    }
+    .btn i {
+      font-size: 25px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://files.catbox.moe/549uws.jpg" alt="Imagem de Perfil">
+    <div class="username">@yamazukykkk</div>
+
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <a href="https://www.instagram.com/yamazukykkk?igsh=ZGU1MXdxN2k0MmJi" target="_blank" class="btn link">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a href="https://wa.me/+558499998633" target="_blank" class="btn link">
+      <i class="fab fa-whatsapp"></i> Zap Do Yamazuky2k | Procrastination
+    </a>
+
+    <a href="https://discord.gg/5w75jsYN" target="_blank" class="btn link">
+      <i class="fab fa-discord"></i> Meu discord
+    </a>
+
+    <a href="t.me/Yamazuky2kProcrastination" target="_blank" class="btn link">
+      <i class="fab fa-behance"></i> Meu Telegram
+    </a>
+  </div>
+</body>
+</html>
