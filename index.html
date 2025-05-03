@@ -7,10 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&display=swap" rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       padding: 0;
@@ -27,17 +23,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 20px;
     }
 
     .container img {
       width: 140px;
       height: 140px;
-      object-fit: cover;
       border-radius: 50%;
-      border: 4px solid #00e3fd;
-      box-shadow: 0 0 15px #00e3fd;
+      object-fit: cover;
+      box-shadow: 0 0 20px #00e3fd;
     }
 
     .username {
@@ -89,6 +82,11 @@
       box-shadow: 0 0 20px rgba(0, 255, 21, 0.767);
     }
 
+    .btn.whatsapp {
+      background-image: linear-gradient(45deg, #00e3fd 0%, #6ef195 100%);
+      color: #000;
+    }
+
     .btn.link {
       background-color: #303030;
       color: #fff;
@@ -104,11 +102,11 @@
       font-size: 25px;
     }
 
-    footer {
-      margin-top: 40px;
+    .credits {
       text-align: center;
-      color: #aaa;
+      margin-top: 40px;
       font-size: 14px;
+      color: #ccc;
     }
 
     @keyframes fadeInDown {
@@ -121,14 +119,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       .btn {
-        padding: 16px;
-        font-size: 15px;
+        font-size: 14px;
+        padding: 15px;
       }
-
       .username {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
   </style>
@@ -158,12 +155,15 @@
     </a>
 
     <a href="https://t.me/Yamazuky2kProcrastination" target="_blank" class="btn link">
-      <i class="fab fa-telegram"></i> Meu Telegram
+      <i class="fab fa-behance"></i> Meu Telegram
     </a>
 
-    <footer>
-      Yamazuky2k | Procrastination
-    </footer>
+    <div class="credits">Yamazuky2k | Procrastination</div>
   </div>
+
+  <audio autoplay loop>
+    <source src="msc.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
 </body>
 </html>
