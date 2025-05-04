@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yamazuky2k | Procrastination</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -20,16 +20,43 @@
       font-family: 'Sora', sans-serif;
     }
 
-    .container {
-      max-width: 828px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    .navbar {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px 0;
       background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 20px;
+      font-weight: bold;
     }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00e3fd;
+    }
+
+    .container {
+  max-width: 828px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent; /* aqui mudou */
+  border-radius: 20px;
+}
+
+#sobre {
+  display: none;
+  text-align: center;
+  background-color: transparent; /* adiciona isso aqui também se quiser */
+}
 
     .container img {
       width: 140px;
@@ -38,6 +65,7 @@
       border-radius: 50%;
       border: 4px solid #00e3fd;
       box-shadow: 0 0 15px #00e3fd;
+      margin: 0 auto; /* Garante que a imagem fique no centro */
     }
 
     .username {
@@ -83,7 +111,6 @@
       margin: 10px 0;
       font-size: 16px;
       font-weight: 500;
-      line-height: 1.5em;
       border-radius: 20px;
       transition: all 0.3s ease;
     }
@@ -127,10 +154,50 @@
         font-size: 20px;
       }
     }
+
+    /* Página Sobre */
+    #sobre {
+      display: none;
+      text-align: center;
+    }
+
+    #sobre.active {
+      display: block;
+    }
+
+    #main {
+      display: block;
+    }
+
+    #main.hide {
+      display: none;
+    }
+
+    .sobre-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px 0;
+      border: 3px solid #00e3fd;
+    }
+
+    .sobre-text {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.6em;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <div class="navbar">
+    <a href="#" onclick="mostrarSobre()">Sobre</a>
+    <a href="https://wa.me/+558499998633" target="_blank">Contato</a>
+  </div>
+
+  <div class="container" id="main">
     <img src="https://files.catbox.moe/549uws.jpg" alt="Imagem de Perfil">
     <div class="username">@yamazukykkk</div>
 
@@ -146,11 +213,11 @@
     </a>
 
     <a href="https://wa.me/+558499998633" target="_blank" class="btn link">
-      <i class="fab fa-whatsapp"></i> Zap Do Yamazuky2k | Procrastination
+      <i class="fab fa-whatsapp"></i> Zap do Yamazuky2k
     </a>
 
     <a href="https://discord.gg/5w75jsYN" target="_blank" class="btn link">
-      <i class="fab fa-discord"></i> Meu discord
+      <i class="fab fa-discord"></i> Meu Discord
     </a>
 
     <a href="https://t.me/Yamazuky2kProcrastination" target="_blank" class="btn link">
@@ -161,5 +228,26 @@
       Yamazuky2k | Procrastination
     </footer>
   </div>
+
+  <div class="container" id="sobre">
+    <img src="https://files.catbox.moe/rfkwp5.jpg" alt="Foto de perfil" class="sobre-img">
+    <div class="sobre-text">
+      <p>Olá, meu nome é Vitor, conhecido como Yamazuky. Sou um desenvolvedor web que gosta muito de programação e de experiências novas. Estou sempre buscando novos desafios e aprendizados.</p>
+    </div>
+    <br />
+    <a href="#" onclick="voltar()">Voltar</a>
+  </div>
+
+  <script>
+    function mostrarSobre() {
+      document.getElementById("main").classList.add("hide");
+      document.getElementById("sobre").classList.add("active");
+    }
+
+    function voltar() {
+      document.getElementById("main").classList.remove("hide");
+      document.getElementById("sobre").classList.remove("active");
+    }
+  </script>
 </body>
 </html>
