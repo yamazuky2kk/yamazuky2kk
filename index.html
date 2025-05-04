@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -44,14 +42,13 @@
       transition: left 0.3s ease;
       z-index: 1000;
       padding: 20px;
+      overflow-y: auto;
     }
 
-    .sidebar.open {
-      left: 0;
-    }
+    .sidebar.open { left: 0; }
 
     .sidebar h2 {
-      color: #00e3fd;
+      color: #fd0000;
       font-size: 20px;
       margin-bottom: 20px;
     }
@@ -65,9 +62,7 @@
       transition: color 0.3s ease;
     }
 
-    .sidebar a:hover {
-      color: #00e3fd;
-    }
+    .sidebar a:hover { color: #00e3fd; }
 
     .navbar {
       display: flex;
@@ -84,9 +79,7 @@
       transition: color 0.3s;
     }
 
-    .navbar a:hover {
-      color: #00e3fd;
-    }
+    .navbar a:hover { color: #00e3fd; }
 
     .container {
       max-width: 828px;
@@ -192,9 +185,7 @@
       transition: all 0.5s ease;
     }
 
-    .btn i {
-      font-size: 25px;
-    }
+    .btn i { font-size: 25px; }
 
     footer {
       margin-top: 40px;
@@ -224,22 +215,10 @@
       }
     }
 
-    #sobre {
-      display: none;
-      text-align: center;
-    }
-
-    #sobre.active {
-      display: block;
-    }
-
-    #main {
-      display: block;
-    }
-
-    #main.hide {
-      display: none;
-    }
+    #sobre { display: none; text-align: center; }
+    #sobre.active { display: block; }
+    #main { display: block; }
+    #main.hide { display: none; }
 
     .sobre-img {
       width: 100px;
@@ -267,6 +246,13 @@
   <div class="sidebar" id="sidebar">
     <h2>Mais opções</h2>
     <a href="https://mega.nz/file/mThyBaBZ#f4DgAfycjndq8Lwiji2xYX5-jm_Ql9U7kYDOBg-1Hxk" target="_blank">Base Nexus-System</a>
+
+    <div style="margin-top: 20px;">
+      <h2 style="color:#ffffff; font-size:16px;">Nexus IA</h2>
+      <textarea id="user-input" placeholder="Digite sua pergunta..." style="width:100%;height:80px;border-radius:10px;padding:10px;margin-bottom:10px;background:#1e1e1e;color:#fff;border:1px solid #444;"></textarea>
+      <button onclick="sendMessage()" style="width:100%;padding:10px;border:none;border-radius:10px;background:#00e3fd;color:#000;font-weight:bold;cursor:pointer;">Enviar</button>
+      <div id="response" style="margin-top:10px;max-height:200px;overflow-y:auto;font-size:14px;line-height:1.4;"></div>
+    </div>
   </div>
 
   <div class="navbar">
@@ -329,6 +315,36 @@
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       sidebar.classList.toggle('open');
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('user-input').value;
+      const responseDiv = document.getElementById('response');
+
+      if (!input.trim()) return;
+
+      responseDiv.innerHTML = 'Carregando resposta...';
+
+      try {
+        const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDK3l-yYrpb-FWnoF0c09zZ5wyAc6-Nshc', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: input }] }]
+          })
+        });
+
+        const data = await res.json();
+
+        if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+          responseDiv.innerHTML = data.candidates[0].content.parts[0].text;
+        } else {
+          responseDiv.innerHTML = 'Erro ao obter resposta.';
+        }
+      } catch (error) {
+        console.error(error);
+        responseDiv.innerHTML = 'Erro ao se conectar com a API.';
+      }
     }
   </script>
 </body>
