@@ -215,10 +215,9 @@
       }
     }
 
-    #sobre { display: none; text-align: center; }
-    #sobre.active { display: block; }
-    #main { display: block; }
-    #main.hide { display: none; }
+    #sobre, #chatNexus { display: none; text-align: center; }
+    #sobre.active, #chatNexus.active { display: block; }
+    #main.hide, #sobre.hide, #chatNexus.hide { display: none; }
 
     .sobre-img {
       width: 100px;
@@ -235,117 +234,194 @@
       font-size: 16px;
       line-height: 1.6em;
     }
+
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 40px auto;
+    }
+
+    .header {
+      font-size: 1.2rem;
+      color: #1e90ff;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      padding: 10px 14px;
+      border-radius: 10px;
+      max-width: 80%;
+      word-break: break-word;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .user-message {
+      background-color: #1e90ff;
+      align-self: flex-end;
+    }
+
+    .bot-message {
+      background-color: #444;
+      align-self: flex-start;
+    }
+
+    .input-container {
+      display: flex;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    .input-container input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px 0 0 8px;
+      border: none;
+    }
+
+    .input-container button {
+      padding: 10px;
+      border: none;
+      background-color: #1e90ff;
+      color: white;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-
   <div class="menu-btn" onclick="toggleSidebar()">
     <i class="fas fa-bars"></i>
   </div>
+<div class="navbar">
+  <a href="https://wa.me/+558499998633" target="_blank">Contato</a>
+  <a href="#" onclick="mostrarSobre()">Sobre</a>
+</div>
 
-  <div class="sidebar" id="sidebar">
-    <h2>Mais opções</h2>
-    <a href="https://mega.nz/file/mThyBaBZ#f4DgAfycjndq8Lwiji2xYX5-jm_Ql9U7kYDOBg-1Hxk" target="_blank">Base Nexus-System</a>
-
-    <div style="margin-top: 20px;">
-      <h2 style="color:#ffffff; font-size:16px;">Nexus IA</h2>
-      <textarea id="user-input" placeholder="Digite sua pergunta..." style="width:100%;height:80px;border-radius:10px;padding:10px;margin-bottom:10px;background:#1e1e1e;color:#fff;border:1px solid #444;"></textarea>
-      <button onclick="sendMessage()" style="width:100%;padding:10px;border:none;border-radius:10px;background:#00e3fd;color:#000;font-weight:bold;cursor:pointer;">Enviar</button>
-      <div id="response" style="margin-top:10px;max-height:200px;overflow-y:auto;font-size:14px;line-height:1.4;"></div>
-    </div>
-  </div>
-
-  <div class="navbar">
-    <a href="#" onclick="mostrarSobre()">Sobre</a>
-    <a href="https://wa.me/+558499998633" target="_blank">Contato</a>
-  </div>
+<div class="sidebar" id="sidebar">
+  <h2>Mais opções</h2>
+  <!-- Removi o "Sobre" da barra lateral -->
+  <a href="#" onclick="mostrarChat()">Chat Nexus IA</a>
+  <a href="https://mega.nz/file/mThyBaBZ#f4DgAfycjndq8Lwiji2xYX5-jm_Ql9U7kYDOBg-1Hxk" target="_blank">Base Nexus-System</a>
+</div>
 
   <div class="container" id="main">
     <img src="https://files.catbox.moe/549uws.jpg" alt="Imagem de Perfil">
     <div class="username">@yamazukykkk</div>
-
     <div class="social-icons">
       <a href="#"><i class="fab fa-whatsapp"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-telegram"></i></a>
       <a href="#"><i class="fab fa-discord"></i></a>
     </div>
-
-    <a href="https://www.instagram.com/yamazukykkk?igsh=ZGU1MXdxN2k0MmJi" target="_blank" class="btn link">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-
-    <a href="https://wa.me/+558499998633" target="_blank" class="btn link">
-      <i class="fab fa-whatsapp"></i> Zap do Yamazuky2k
-    </a>
-
-    <a href="https://discord.gg/5w75jsYN" target="_blank" class="btn link">
-      <i class="fab fa-discord"></i> Meu Discord
-    </a>
-
-    <a href="https://t.me/Yamazuky2kProcrastination" target="_blank" class="btn link">
-      <i class="fab fa-telegram"></i> Meu Telegram
-    </a>
-
-    <footer>
-      Yamazuky2k | Procrastination
-    </footer>
+    <a href="https://www.instagram.com/yamazukykkk" class="btn link"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://wa.me/+558499998633" class="btn link"><i class="fab fa-whatsapp"></i> Zap do Yamazuky2k</a>
+    <a href="https://discord.gg/5w75jsYN" class="btn link"><i class="fab fa-discord"></i> Meu Discord</a>
+    <a href="https://t.me/Yamazuky2kProcrastination" class="btn link"><i class="fab fa-telegram"></i> Meu Telegram</a>
+    <footer>Yamazuky2k | Procrastination</footer>
   </div>
 
   <div class="container" id="sobre">
     <img src="https://files.catbox.moe/rfkwp5.jpg" alt="Foto de perfil" class="sobre-img">
     <div class="sobre-text">
       <p>Olá, meu nome é Vitor, conhecido como Yamazuky. Sou um desenvolvedor web que gosta muito de programação e de experiências novas. Estou sempre buscando novos desafios e aprendizados.</p>
-    </div>
-    <br />
+    </div><br />
     <a href="#" onclick="voltar()">Voltar</a>
   </div>
 
-  <script>
-    function mostrarSobre() {
-      document.getElementById("main").classList.add("hide");
-      document.getElementById("sobre").classList.add("active");
-    }
+  <div class="container" id="chatNexus">
+    <div class="chat-container" id="chat">
+      <div class="header">Nexus IA</div>
+    </div>
+    <div class="input-container">
+      <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <br><a href="#" onclick="voltar()">Voltar</a>
+  </div>
 
-    function voltar() {
-      document.getElementById("main").classList.remove("hide");
-      document.getElementById("sobre").classList.remove("active");
-    }
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
 
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('open');
-    }
+  function mostrarSobre() {
+    esconderTudo();
+    document.getElementById("sobre").classList.add("active");
+  }
 
-    async function sendMessage() {
-      const input = document.getElementById('user-input').value;
-      const responseDiv = document.getElementById('response');
+  function mostrarChat() {
+    esconderTudo();
+    document.getElementById("chatNexus").classList.add("active");
+  }
 
-      if (!input.trim()) return;
+  function voltar() {
+    esconderTudo();
+    document.getElementById("main").classList.remove("hide");
+  }
 
-      responseDiv.innerHTML = 'Carregando resposta...';
+  function esconderTudo() {
+    document.getElementById("main").classList.add("hide");
+    document.getElementById("sobre").classList.remove("active");
+    document.getElementById("chatNexus").classList.remove("active");
+  }
 
-      try {
-        const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDK3l-yYrpb-FWnoF0c09zZ5wyAc6-Nshc', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: input }] }]
-          })
-        });
-
-        const data = await res.json();
-
-        if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
-          responseDiv.innerHTML = data.candidates[0].content.parts[0].text;
-        } else {
-          responseDiv.innerHTML = 'Erro ao obter resposta.';
-        }
-      } catch (error) {
-        console.error(error);
-        responseDiv.innerHTML = 'Erro ao se conectar com a API.';
+  function typeText(element, text, delay = 25) {
+    let i = 0;
+    element.textContent = "";
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(interval);
       }
+    }, delay);
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('userInput');
+    const chat = document.getElementById('chat');
+
+    if (!input.value.trim()) return;
+
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user-message';
+    userMsg.textContent = input.value;
+    chat.appendChild(userMsg);
+
+    const botMsg = document.createElement('div');
+    botMsg.className = 'message bot-message';
+    botMsg.textContent = '...';
+    chat.appendChild(botMsg);
+
+    chat.scrollTop = chat.scrollHeight;
+
+    try {
+      const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDK3l-yYrpb-FWnoF0c09zZ5wyAc6-Nshc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: input.value }] }] })
+      });
+
+      const data = await response.json();
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Erro na resposta.";
+      typeText(botMsg, text);
+    } catch (error) {
+      botMsg.textContent = "Erro ao conectar com a IA.";
     }
-  </script>
+
+    input.value = '';
+  }
+</script>
 </body>
 </html>
