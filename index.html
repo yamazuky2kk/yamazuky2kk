@@ -14,9 +14,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('https://files.catbox.moe/rfkwp5.jpg') no-repeat center center fixed;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/Crater_Lake_Overview.jpg') no-repeat center center fixed; /* Tentei outra imagem aqui */
       background-size: cover;
-      background-attachment: fixed; /* Garante que a imagem de fundo fique fixa */
       color: #fff;
       font-family: 'Sora', sans-serif;
     }
@@ -87,14 +86,18 @@
       line-height: 1.5em;
       border-radius: 20px;
       transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 255, 21, 0.767);
     }
 
     .btn.link {
       background-color: #303030;
       color: #fff;
       backdrop-filter: blur(20px);
-      border: none;
-      box-shadow: 0 0 10px rgba(0, 255, 21, 0.3);
+      border-top: 1px solid;
+      border-image: linear-gradient(90deg, #00e3fd, #6ef195) 1;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
     }
 
     .btn i {
