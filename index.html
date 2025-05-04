@@ -25,7 +25,7 @@
       justify-content: center;
       gap: 40px;
       padding: 20px 0;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: transparent;
       font-weight: bold;
     }
 
@@ -40,32 +40,25 @@
     }
 
     .container {
-  max-width: 828px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: transparent; /* aqui mudou */
-  border-radius: 20px;
-}
+      max-width: 828px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.0);
+      border-radius: 20px;
+    }
 
-#sobre {
-  display: none;
-  text-align: center;
-  background-color: transparent; /* adiciona isso aqui também se quiser */
-}
-
-   .container img {
+    .container img {
       width: 140px;
       height: 140px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #fd0000;
       box-shadow: 0 0 15px #fd0000;
-      margin: 0 auto; /* Garante que a imagem fique no centro */
+      display: block;
+      margin: 0 auto;
     }
 
     .username {
@@ -108,36 +101,46 @@
       text-align: center;
       text-decoration: none;
       padding: 20px;
-      margin: 10px 0;
+      margin: 10px auto;
       font-size: 16px;
       font-weight: 500;
       border-radius: 20px;
       transition: all 0.3s ease;
     }
 
-    .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  text-decoration: none;
-  padding: 20px;
-  margin: 10px auto; /* ALTERADO: centraliza horizontalmente */
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
     .btn.link {
+      position: relative;
+      overflow: hidden;
       background-color: #303030;
       color: #fff;
       backdrop-filter: blur(20px);
       border: none;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.404);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.616);
+      transition: background-color 0.3s ease;
+    }
+
+    .btn.link::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+      pointer-events: none;
+    }
+
+    .btn.link:hover::before {
+      top: -50%;
+      left: 100%;
+      transition: all 0.5s ease;
     }
 
     .btn i {
