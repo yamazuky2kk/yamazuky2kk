@@ -20,6 +20,55 @@
       font-family: 'Sora', sans-serif;
     }
 
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1001;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.8);
+      transition: left 0.3s ease;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar h2 {
+      color: #00e3fd;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      color: #00e3fd;
+    }
+
     .navbar {
       display: flex;
       justify-content: center;
@@ -175,7 +224,6 @@
       }
     }
 
-    /* Página Sobre */
     #sobre {
       display: none;
       text-align: center;
@@ -208,17 +256,18 @@
       font-size: 16px;
       line-height: 1.6em;
     }
-
-    @media (min-width: 1024px) {
-      body {
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center top;
-      }
-    }
   </style>
 </head>
 <body>
+
+  <div class="menu-btn" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Mais opções</h2>
+    <a href="https://mega.nz/file/mThyBaBZ#f4DgAfycjndq8Lwiji2xYX5-jm_Ql9U7kYDOBg-1Hxk" target="_blank">Base Nexus-System</a>
+  </div>
 
   <div class="navbar">
     <a href="#" onclick="mostrarSobre()">Sobre</a>
@@ -275,6 +324,11 @@
     function voltar() {
       document.getElementById("main").classList.remove("hide");
       document.getElementById("sobre").classList.remove("active");
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
     }
   </script>
 </body>
