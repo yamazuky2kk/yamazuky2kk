@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yamazuky2k | Procrastination</title>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&display=swap" rel="stylesheet"/>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -14,24 +14,21 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/Crater_Lake_Overview.jpg') no-repeat center center fixed; /* Tentei outra imagem aqui */
-      background-size: cover;
+      background: #000;
       color: #fff;
       font-family: 'Sora', sans-serif;
     }
 
     .container {
-      max-width: 828px;
+      max-width: 420px;
       margin: 0 auto;
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 20px;
     }
 
-    .container img {
+    .profile-img {
       width: 140px;
       height: 140px;
       object-fit: cover;
@@ -45,23 +42,18 @@
       font-weight: 700;
       text-align: center;
       margin: 20px 0;
-      animation: fadeInDown 0.6s ease;
     }
 
     .social-icons {
       display: flex;
-      gap: 10px;
+      gap: 20px;
       justify-content: center;
       margin-bottom: 30px;
-      animation: fadeInUp 0.6s ease;
     }
 
     .social-icons a {
       color: #fff;
-      font-size: 20px;
-      padding: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
+      font-size: 22px;
       transition: all 0.3s ease;
     }
 
@@ -73,91 +65,62 @@
     .btn {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
+      justify-content: center;
       width: 100%;
-      max-width: 400px;
-      text-align: center;
+      background-color: #222;
+      color: #fff;
       text-decoration: none;
-      padding: 20px;
+      padding: 16px;
       margin: 10px 0;
-      font-size: 16px;
+      border-radius: 10px;
       font-weight: 500;
-      line-height: 1.5em;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px rgba(0, 255, 21, 0.767);
+      transition: background 0.3s ease;
+      border: 1px solid transparent;
     }
 
-    .btn.link {
-      background-color: #303030;
-      color: #fff;
-      backdrop-filter: blur(20px);
-      border-top: 1px solid;
-      border-image: linear-gradient(90deg, #00e3fd, #6ef195) 1;
-      border-left: 0;
-      border-right: 0;
-      border-bottom: 0;
+    .btn:hover {
+      background: #333;
+      border-color: #00e3fd;
     }
 
     .btn i {
-      font-size: 25px;
+      font-size: 20px;
     }
 
     footer {
       margin-top: 40px;
       text-align: center;
-      color: #aaa;
+      color: #666;
       font-size: 14px;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 500px) {
-      .btn {
-        padding: 16px;
-        font-size: 15px;
-      }
-
-      .username {
-        font-size: 20px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="https://files.catbox.moe/549uws.jpg" alt="Imagem de Perfil">
+    <img src="https://files.catbox.moe/549uws.jpg" alt="Imagem de Perfil" class="profile-img">
     <div class="username">@yamazukykkk</div>
 
     <div class="social-icons">
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-behance"></i></a>
-      <a href="#"><i class="fab fa-discord"></i></a>
+      <a href="https://wa.me/+558499998633" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/yamazukykkk" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://discord.gg/5w75jsYN" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="https://t.me/Yamazuky2kProcrastination" target="_blank"><i class="fab fa-telegram"></i></a>
     </div>
 
-    <a href="https://www.instagram.com/yamazukykkk?igsh=ZGU1MXdxN2k0MmJi" target="_blank" class="btn link">
+    <a href="https://wa.me/+558499998633" target="_blank" class="btn">
+      <i class="fab fa-whatsapp"></i> Zap Do Yamazuky2k
+    </a>
+
+    <a href="https://www.instagram.com/yamazukykkk" target="_blank" class="btn">
       <i class="fab fa-instagram"></i> Instagram
     </a>
 
-    <a href="https://wa.me/+558499998633" target="_blank" class="btn link">
-      <i class="fab fa-whatsapp"></i> Zap Do Yamazuky2k | Procrastination
+    <a href="https://discord.gg/5w75jsYN" target="_blank" class="btn">
+      <i class="fab fa-discord"></i> Meu Discord
     </a>
 
-    <a href="https://discord.gg/5w75jsYN" target="_blank" class="btn link">
-      <i class="fab fa-discord"></i> Meu discord
-    </a>
-
-    <a href="https://t.me/Yamazuky2kProcrastination" target="_blank" class="btn link">
+    <a href="https://t.me/Yamazuky2kProcrastination" target="_blank" class="btn">
       <i class="fab fa-telegram"></i> Meu Telegram
     </a>
 
